@@ -1,3 +1,36 @@
+// Função para entrar em tela cheia
+function entrarTelaCheia() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { // Safari
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE11
+        elem.msRequestFullscreen();
+    }
+}
+
+// Detectar orientação e forçar tela cheia em paisagem
+function verificarOrientacao() {
+    if (window.innerWidth > window.innerHeight) {
+        // Está em modo paisagem (deitado)
+        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+            entrarTelaCheia();
+        }
+    }
+}
+
+// Verificar ao carregar a página
+window.addEventListener('load', verificarOrientacao);
+
+// Verificar quando mudar a orientação
+window.addEventListener('orientationchange', () => {
+    setTimeout(verificarOrientacao, 100);
+});
+
+// Verificar quando redimensionar
+window.addEventListener('resize', verificarOrientacao);
+
 iniciarJogo();
 const fundo = document.getElementById("body");
 let velocidade = 3;
@@ -71,6 +104,9 @@ const reiniciar = document.getElementById("reiniciar");
 
 reiniciar.addEventListener("click", () => {
     if (reiniciar.textContent === "Iniciar") {
+        // Tentar entrar em tela cheia ao iniciar o jogo
+        entrarTelaCheia();
+        
         jogoIniciado(); 
         iniciarLasers(); 
     } else {
