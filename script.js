@@ -118,7 +118,14 @@ function criarLaserHorizontal() {
     const laser = document.createElement("div");
     laser.classList.add("laser-h");
 
-    const alturaAleatoria = Math.random() * (window.innerHeight - 200);
+    // Melhor distribuição aleatória - usa toda a altura da tela
+    const alturaLaser = 10; // Altura do laser
+    const margemSegura = 30; // Margem de segurança
+    const alturaMinima = margemSegura;
+    const alturaMaxima = window.innerHeight - alturaLaser - margemSegura;
+    
+    const alturaAleatoria = Math.random() * (alturaMaxima - alturaMinima) + alturaMinima;
+    
     laser.style.top = alturaAleatoria + "px";
     laser.style.left = (window.innerWidth + 200) + "px";
 
