@@ -1,0 +1,157 @@
+/* style.css - atualizado */
+body {
+    background-image: url("fundo.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px; 
+    cursor: pointer;
+}
+
+.div_teste {
+    background-image: linear-gradient(to right, rgb(118, 207, 248), rgb(83, 143, 172));
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80px; /* Tamanho menor para mobile */
+    height: 80px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Sempre redonda independente do tamanho */
+    transform-origin: bottom center;
+    
+    /* Posicionamento */
+    position: absolute;
+    left: 20px; /* Posição inicial ajustada */
+    top: 20px;
+    bottom: 20px;
+    right: 20px;
+    
+}
+
+.laser {
+    position: absolute;
+    width: 8px;
+    background-color: #ff1e1e;
+    box-shadow: 0 0 20px #ff1e1e, 0 0 40px #ff0000;
+    border-radius: 15px;
+    transform-origin: bottom;
+    bottom: 0; /* Sempre no chão */
+}
+
+.laser-h {
+    position: absolute;
+    width: 180px;
+    height: 10px;
+    background-color: #ff1e1e;
+    box-shadow: 0 0 20px #ff1e1e, 0 0 40px #ff0000;
+    border-radius: 4px;
+}
+
+.gameover{
+    display: flex;
+    font-family: fantasy;
+    color: #ffffff;
+    font-size: 5rem;
+    text-shadow: 2px 2px 4px #ff0000;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.score{
+    display: flex;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #faea0d;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px #00ffbf;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.reiniciar{
+    display: flex;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #080808;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #00ffbf;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: inset;
+    text-shadow: inset;
+    padding: 1rem;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    display: none;
+}
+
+.reiniciar:hover{
+    background-color: #00ffbf65;
+    color: #08080859;
+}
+
+
+/* Media queries para diferentes tamanhos de tela */
+@media (max-width: 600px) and (orientation: portrait) {
+    /* Celular em modo retrato */
+    .div_teste {
+        width: 60px;
+        height: 60px;
+        left: 15px;
+        top: 15px;
+    }
+    
+    .laser-h {
+        width: 120px; /* Laser horizontal menor em mobile */
+    }
+
+    .gameover{
+        font-size: 3rem;
+        width:80%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .score{
+        font-size: 2rem;
+        width:80%;
+        align-items: center;
+        justify-content: center
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    /* Celular em modo paisagem */
+    .div_teste {
+        width: 50px;
+        height: 50px;
+        left: 10px;
+        top: 10px;
+    }
+    
+    .laser-h {
+        width: 100px; /* Laser horizontal menor em paisagem */
+    }
+
+    .gameover{
+        font-size: 3rem;
+    }
+
+    .score{
+        font-size: 2rem;
+    }
+}
