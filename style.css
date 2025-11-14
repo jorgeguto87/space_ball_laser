@@ -1,4 +1,4 @@
-/* style.css - atualizado */
+/* style.css - otimizado */
 body {
     background-image: url("fundo.gif");
     background-repeat: no-repeat;
@@ -16,22 +16,18 @@ body {
 .div_teste {
     background-image: linear-gradient(to right, rgb(118, 207, 248), rgb(83, 143, 172));
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 80px; /* Tamanho menor para mobile */
+    width: 80px;
     height: 80px;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%; /* Sempre redonda independente do tamanho */
+    border-radius: 50%;
     transform-origin: bottom center;
-    
-    /* Posicionamento */
     position: absolute;
-    left: 20px; /* Posição inicial ajustada */
+    left: 20px;
     top: 20px;
-    bottom: 20px;
-    right: 20px;
-    
+    will-change: transform, left, top; /* Otimização de performance */
 }
 
 .laser {
@@ -41,7 +37,8 @@ body {
     box-shadow: 0 0 20px #ff1e1e, 0 0 40px #ff0000;
     border-radius: 15px;
     transform-origin: bottom;
-    bottom: 0; /* Sempre no chão */
+    bottom: 0;
+    will-change: transform; /* Otimização de performance */
 }
 
 .laser-h {
@@ -51,6 +48,7 @@ body {
     background-color: #ff1e1e;
     box-shadow: 0 0 20px #ff1e1e, 0 0 40px #ff0000;
     border-radius: 4px;
+    will-change: transform; /* Otimização de performance */
 }
 
 .gameover{
@@ -104,10 +102,8 @@ body {
     color: #08080859;
 }
 
-
 /* Media queries para diferentes tamanhos de tela */
 @media (max-width: 600px) and (orientation: portrait) {
-    /* Celular em modo retrato */
     .div_teste {
         width: 60px;
         height: 60px;
@@ -116,7 +112,7 @@ body {
     }
     
     .laser-h {
-        width: 120px; /* Laser horizontal menor em mobile */
+        width: 120px;
     }
 
     .gameover{
@@ -135,7 +131,6 @@ body {
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
-    /* Celular em modo paisagem */
     .div_teste {
         width: 50px;
         height: 50px;
@@ -144,7 +139,7 @@ body {
     }
     
     .laser-h {
-        width: 100px; /* Laser horizontal menor em paisagem */
+        width: 100px;
     }
 
     .gameover{
@@ -153,5 +148,10 @@ body {
 
     .score{
         font-size: 2rem;
+        top: 55%;
+    }
+
+    .reiniciar{
+        top: 80%;
     }
 }

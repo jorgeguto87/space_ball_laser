@@ -124,7 +124,7 @@ function criarLaserHorizontal() {
 
     document.body.appendChild(laser);
 
-    // Verificar colisão durante a animação
+    // Verificar colisão durante a animação - OTIMIZADO para 100ms
     const checkCollision = setInterval(() => {
         if (!gameOver && laser.parentNode && verificarColisao(laser, quadrado)) {
             gameOver = true;
@@ -143,7 +143,7 @@ function criarLaserHorizontal() {
             
             mostrarGameOver();
         }
-    }, 50);
+    }, 100); // Mudado de 50ms para 100ms
 
     // Apenas UMA animação GSAP
     gsap.to(laser, {
